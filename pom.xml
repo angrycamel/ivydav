@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.angrycamel</groupId>
+  <artifactId>ivydav</artifactId>
+
+  <name>IvyDAV</name>
+  <version>0.9</version>
+
+  <packaging>jar</packaging>
+  <organization>
+  	<name>org.angrycamel</name>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>angrycamel</id>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>The MIT license</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:https://github.com/angrycamel/ivydav.git</connection>
+    <developerConnection>scm:git:https://git@github.com/angrycamel/ivydav.git</developerConnection>
+    <url>http://github.com/angrycamel/ivydav</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.googlecode.sardine</groupId>
+      <artifactId>sardine</artifactId>
+      <version>146</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ivy</groupId>
+      <artifactId>ivy</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<version>4.8.2</version>
+    	<type>jar</type>
+    	<scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.jmock</groupId>
+    	<artifactId>jmock</artifactId>
+    	<version>2.5.1</version>
+    	<type>jar</type>
+    	<scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.jmock</groupId>
+    	<artifactId>jmock-junit4</artifactId>
+    	<version>2.5.1</version>
+    	<type>jar</type>
+    	<scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.jmock</groupId>
+    	<artifactId>jmock-legacy</artifactId>
+    	<version>2.5.1</version>
+    	<type>jar</type>
+    	<scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
