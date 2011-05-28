@@ -12,18 +12,27 @@ import org.apache.ivy.util.Message;
 
 import com.googlecode.sardine.util.SardineException;
 
+/**
+ * Equivalent to File in a DAV context. Having an instance of DavResource is necessary 
+ * to query and access the resource, but of course doesn't mean the resource exists!
+ * 
+ * @author angrycamel
+ */
 public class DavResource implements org.apache.ivy.plugins.repository.Resource {
 
 	org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(DavResource.class);
 	
-	DavRepository repository = null;
+    static enum Existence {
+    	DIRECTORY,
+    	FILE,
+    	ABSENT;
+    }
+
+    DavRepository repository = null;
     String uri = null;
 
-//    private transient boolean init = false;
-//    private transient boolean exists = false;
-//    private transient boolean isDirectory = false;
-    
-    @GuardedBy(value="this")
+    private final Object contentFetchLock = new Object();
+    @GuardedBy(value="contentFetchLock")
     private transient WebserverData cachedContent = null;
     
 	public DavResource() {
@@ -39,37 +48,6 @@ public class DavResource implements org.apache.ivy.plugins.repository.Resource {
 		
     private void init() {
     }
-    /*
-    private boolean isContainerURI() {
-    	return uri.endsWith("/");
-    }
-    
-    private boolean initContainer() {
-    	try {
-    		List<String> childResources = repository.getDirectoryResources(uri);
-    		exists = childResources != null && !childResources.isEmpty();
-    		isDirectory = childResources.size() > 1;
-        	return true;
-    	} 
-    	catch (IOException ex) {
-    		Message.verbose(ex.getLocalizedMessage());
-           	exists = false;
-           	return false;
-    	}
-    }
-    private boolean initItem() {
-		try {
-			exists = repository.existsItem(uri);
-			isDirectory = false;
-			return true;
-        } 
-		catch (Exception e2) {
-        	Message.verbose(e2.getLocalizedMessage());
-        	exists = false;
-        	return false;
-        }
-    }
-    */
     
     /**
      * Get a list of direct descendents of the given resource. Note that attempts to get a list of
@@ -153,11 +131,6 @@ public class DavResource implements org.apache.ivy.plugins.repository.Resource {
         }
         return false;
     }
-    static enum Existence {
-    	DIRECTORY,
-    	FILE,
-    	ABSENT;
-    }
     
     private Existence existence() {
         init();
@@ -192,11 +165,13 @@ public class DavResource implements org.apache.ivy.plugins.repository.Resource {
     	return content == null ? null : repository.getResourceStream(uri);
     }
     
-    private synchronized WebserverData fetchWebserverContent() throws IOException {
-    	if (cachedContent == null) {
-    		cachedContent = repository.getResourceMetadata(uri);
+    private WebserverData fetchWebserverContent() throws IOException {
+    	synchronized(contentFetchLock) {
+	    	if (cachedContent == null) {
+	    		cachedContent = repository.getResourceMetadata(uri);
+	    	}
+	    	return cachedContent;
     	}
-    	return cachedContent;
     }
 
 	@Override

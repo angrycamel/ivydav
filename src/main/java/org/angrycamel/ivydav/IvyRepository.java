@@ -22,7 +22,7 @@ import org.apache.ivy.util.Message;
  * 
  * NB HTTPS is not supported
  * 
- * @author ed
+ * @author angrycamel
  */
 public class IvyRepository extends AbstractRepository {
 

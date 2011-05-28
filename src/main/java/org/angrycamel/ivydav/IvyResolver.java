@@ -5,7 +5,8 @@ import org.apache.ivy.plugins.resolver.RepositoryResolver;
 
 /**
  * An IVY resolver for use with Sardine to access and publish to a DAV share
- * @author ed
+ * 
+ * @author angrycamel
  */
 public class IvyResolver extends RepositoryResolver {
 

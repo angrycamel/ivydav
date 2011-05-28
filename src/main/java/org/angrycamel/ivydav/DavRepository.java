@@ -11,6 +11,12 @@ import com.googlecode.sardine.Sardine;
 import com.googlecode.sardine.SardineFactory;
 import com.googlecode.sardine.util.SardineException;
 
+/**
+ * Wrapper around Sardine to facilitate the needs of DavResource
+ *
+ * @author angrycamel
+ *
+ */
 public class DavRepository {
 
 	private final String urlRoot;
