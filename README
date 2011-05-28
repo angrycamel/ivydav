@@ -4,16 +4,16 @@ artifacts.
 Example configuration (ivysettings):
 
 <ivysettings>
-	<settings defaultResolver="module-repository"/>
+  <settings defaultResolver="module-repository"/>
 
-	<typedef name="webdav" classname="org.angrycamel.ivydav.IvyResolver"/>
+  <typedef name="webdav" classname="org.angrycamel.ivydav.IvyResolver"/>
 	
-	<resolvers> 
-			<webdav name="module-repository" root="webdav://myhost.mydomain:8080/ivy">
-                <ivy pattern="[organisation]/[module]/ivy-[revision].xml" />
-				<artifact pattern="[organisation]/[module]/[revision]/[artifact].[ext]" />
-			</webdav>
-    </resolvers>
+  <resolvers> 
+    <webdav name="module-repository" root="webdav://myhost.mydomain:8080/ivy/">
+      <ivy pattern="[organisation]/[module]/ivy-[revision].xml" />
+      <artifact pattern="[organisation]/[module]/[revision]/[artifact].[ext]" />
+    </webdav>
+  </resolvers>
 
 </ivysettings>	
 
