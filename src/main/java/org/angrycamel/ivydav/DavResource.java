@@ -3,7 +3,6 @@ package org.angrycamel.ivydav;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import org.angrycamel.ivydav.DavRepository.WebserverData;

@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ivy.core.module.descriptor.Artifact;
 import org.apache.ivy.util.Message;
 
 import com.googlecode.sardine.Sardine;

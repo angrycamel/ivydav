@@ -6,7 +6,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Date;
 
 import org.angrycamel.ivydav.DavRepository.WebserverData;
 import org.apache.ivy.plugins.repository.Resource;

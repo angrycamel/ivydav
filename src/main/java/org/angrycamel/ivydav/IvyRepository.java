@@ -16,10 +16,6 @@ import org.apache.ivy.util.CopyProgressListener;
 import org.apache.ivy.util.FileUtil;
 import org.apache.ivy.util.Message;
 
-import com.googlecode.sardine.Sardine;
-import com.googlecode.sardine.SardineFactory;
-import com.googlecode.sardine.util.SardineException;
-
 /**
  * Represents a remote webdav share at a particular HTTP URL requiring specific
  * credentials
