@@ -1,0 +1,20 @@
+IvyDAV is a WebDAV-based resolver for Apache Ivy that supports retrieve/publish of modular
+artifacts. 
+
+Example configuration (ivysettings):
+
+<ivysettings>
+	<settings defaultResolver="module-repository"/>
+
+	<typedef name="webdav" classname="org.angrycamel.ivydav.IvyResolver"/>
+	
+	<resolvers> 
+			<webdav name="module-repository" root="webdav://myhost.mydomain:8080/ivy">
+                <ivy pattern="[organisation]/[module]/ivy-[revision].xml" />
+				<artifact pattern="[organisation]/[module]/[revision]/[artifact].[ext]" />
+			</webdav>
+    </resolvers>
+
+</ivysettings>	
+
+IvyDAV has been tested with Apache 2.2 using mod_dav
