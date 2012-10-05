@@ -1,0 +1,1 @@
+{"name":"Ivydav","note":"Don't delete this file! It's used internally to help with page regeneration.","tagline":"ivydav is a WebDAV Resolver for Apache Ivy","google":"","body":"IvyDAV is a WebDAV-based resolver for Apache Ivy that supports retrieve/publish of modular\r\nartifacts. \r\n\r\nIvyDAV has been tested with Apache 2.2 using mod_dav\r\n"}
